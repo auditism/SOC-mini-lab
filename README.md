@@ -41,35 +41,11 @@ It is fully reproducible and can be extended with Suricata, Zeek, ELK, or cloud 
 
 ---
 
-## 📂 Repository Structure
-
-SOC-mini-lab/
-│
-├── docs/                 # GitHub Pages site
-│   ├── index.md
-│   ├── lab-overview.md
-│   ├── windows-integration.md
-│   ├── ubuntu-splunk.md
-│   ├── pfsense-integration.md
-│   ├── kali-attacks.md
-│   ├── dashboards.md
-│   ├── troubleshooting.md
-│   ├── extras.md
-│   ├── python-log-server.py
-│   └── log-front-end.http
-│
-└── README.md             # You are here
-
-Code
-
----
-
 ## 🧪 Technologies Used
 
 - **Splunk Enterprise**
 - **Sysmon**
 - **pfSense**
-- **OpenVPN**
 - **Kali Linux**
 - **Python (custom log server)**
 - **VirtualBox**
