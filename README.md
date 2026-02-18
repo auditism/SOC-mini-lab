@@ -1,42 +1,96 @@
-# Cybersecurity Lab Project Documentation
+# 🛡️ SOC Mini Lab — Cybersecurity Home Lab Project
 
-Welcome to the documentation for my full cybersecurity home lab.  
-This project simulates a small enterprise environment with:
+This repository contains my full cybersecurity home lab, designed to simulate a small enterprise SOC environment.  
+It includes:
 
-- Firewall (pfSense)
-- Windows endpoint with Sysmon
-- Ubuntu Splunk server
-- Kali attacker machine
-- Custom Python login server
-- OpenVPN remote access
-- Multiple log sources and dashboards
+- pfSense firewall  
+- Windows endpoint with Sysmon  
+- Ubuntu Splunk server  
+- Kali attacker machine  
+- Custom Python login server  
+- Multi‑source log ingestion  
+- Dashboards for detection engineering  
 
-Use the navigation links below to explore each section.
+A full multi‑page documentation website is available here:
+
+👉 **GitHub Pages Site:** https://YOUR_USERNAME.github.io/SOC-mini-lab/
 
 ---
 
-## 📘 Documentation Sections
+## 📘 Documentation Overview
 
-- [Lab Overview](lab-overview.md)
-- [Windows → Splunk Integration](windows-integration.md)
-- [Ubuntu Splunk Configuration](ubuntu-splunk.md)
-- [pfSense Firewall Integration](pfsense-integration.md)
-- [Kali Attacker Simulations](kali-attacks.md)
-- [Splunk Dashboards & Searches](dashboards.md)
-- [Troubleshooting Guide](troubleshooting.md)
-- [Extra Components](extras.md)
+The documentation is organized into multiple pages for clarity:
+
+- **[Lab Overview](docs/lab-overview.md)**  
+- **[Windows → Splunk Integration](docs/windows-integration.md)**  
+- **[Ubuntu Splunk Setup](docs/ubuntu-splunk.md)**  
+- **[pfSense Firewall Integration](docs/pfsense-integration.md)**  
+- **[Kali Attacker Simulations](docs/kali-attacks.md)**  
+- **[Dashboards & SPL Queries](docs/dashboards.md)**  
+- **[Troubleshooting Guide](docs/troubleshooting.md)**  
+- **[Extra Components](docs/extras.md)**  
 
 ---
 
 ## 🎯 Purpose of This Lab
 
-This environment is designed to practice:
+This lab is built to practice:
 
 - SOC analysis  
 - Detection engineering  
-- Log ingestion  
+- Log ingestion pipelines  
 - Threat simulation  
-- Network monitoring  
-- Endpoint monitoring  
+- Endpoint + network monitoring  
+- Building dashboards and alerts  
 
-It is fully reproducible and can be expanded with Suricata, Zeek, ELK, or cloud integrations.
+It is fully reproducible and can be extended with Suricata, Zeek, ELK, or cloud integrations.
+
+---
+
+## 📂 Repository Structure
+
+SOC-mini-lab/
+│
+├── docs/                 # GitHub Pages site
+│   ├── index.md
+│   ├── lab-overview.md
+│   ├── windows-integration.md
+│   ├── ubuntu-splunk.md
+│   ├── pfsense-integration.md
+│   ├── kali-attacks.md
+│   ├── dashboards.md
+│   ├── troubleshooting.md
+│   ├── extras.md
+│   ├── python-log-server.py
+│   └── log-front-end.http
+│
+└── README.md             # You are here
+
+Code
+
+---
+
+## 🧪 Technologies Used
+
+- **Splunk Enterprise**
+- **Sysmon**
+- **pfSense**
+- **OpenVPN**
+- **Kali Linux**
+- **Python (custom log server)**
+- **VirtualBox**
+- **Suricata IDS integration**
+
+---
+
+## 🎥 Video Walkthrough
+
+Watch the full walkthrough of this SOC mini‑lab here:
+
+**YouTube Walkthrough:** https://youtu.be/RtWysfIJ0O4
+
+
+---
+## 📬 Contact
+
+If you want to reproduce this lab or collaborate, feel free to reach out.
