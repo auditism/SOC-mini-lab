@@ -11,10 +11,6 @@ It includes:
 - Multi‑source log ingestion  
 - Dashboards for detection engineering  
 
-A full multi‑page documentation website is available here:
-
-👉 **GitHub Pages Site:** https://auditism.github.io/SOC-mini-lab/
-
 ---
 
 ## 📘 Documentation Overview
