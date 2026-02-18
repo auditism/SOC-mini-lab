@@ -13,7 +13,7 @@ It includes:
 
 A full multi‑page documentation website is available here:
 
-👉 **GitHub Pages Site:** https://YOUR_USERNAME.github.io/SOC-mini-lab/
+👉 **GitHub Pages Site:** https://auditism.github.io/SOC-mini-lab/
 
 ---
 
