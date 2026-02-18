@@ -1,0 +1,108 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Simulator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-8 flex flex-col items-center justify-center min-h-screen">
+    <div class="bg-white p-8 rounded-2xl shadow-xl w-full max-w-md">
+        <h1 class="text-3xl font-bold text-gray-800 mb-6 text-center">Login Simulator</h1>
+        <p class="text-gray-600 text-center mb-8">
+            Use this tool to generate login events that you can monitor in your Splunk environment.
+        </p>
+
+        <div class="space-y-6">
+            <div>
+                <label for="username" class="block text-gray-700 font-semibold mb-2">Username</label>
+                <input type="text" id="username" value="user1" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
+            </div>
+
+            <div>
+                <label for="ip" class="block text-gray-700 font-semibold mb-2">Source IP Address</label>
+                <input type="text" id="ip" value="192.168.1.100" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
+            </div>
+            
+            <div class="flex space-x-4">
+                <button onclick="simulateLogin('success')" class="w-1/2 px-4 py-2 bg-green-500 text-white font-bold rounded-lg hover:bg-green-600 transition duration-300 shadow-md">
+                    Simulate Successful Login
+                </button>
+                <button onclick="simulateLogin('failure')" class="w-1/2 px-4 py-2 bg-red-500 text-white font-bold rounded-lg hover:bg-red-600 transition duration-300 shadow-md">
+                    Simulate Failed Login
+                </button>
+            </div>
+            <button onclick="simulateBruteForce()" class="w-full px-4 py-2 bg-blue-500 text-white font-bold rounded-lg hover:bg-blue-600 transition duration-300 shadow-md">
+                Simulate Brute Force Attack
+            </button>
+        </div>
+
+        <div id="message" class="mt-8 text-center text-lg font-semibold text-gray-700 hidden"></div>
+    </div>
+
+    <script>
+        async function showMessage(text, isError = false) {
+            const messageDiv = document.getElementById('message');
+            messageDiv.textContent = text;
+            messageDiv.className = `mt-8 text-center text-lg font-semibold ${isError ? 'text-red-500' : 'text-green-600'}`;
+            messageDiv.classList.remove('hidden');
+        }
+
+        async function simulateLogin(type) {
+            const username = document.getElementById('username').value;
+            const ip = document.getElementById('ip').value;
+            const eventId = type === 'success' ? 4624 : 4625;
+            
+            const logData = {
+                event_id: eventId,
+                username: username,
+                ip: ip,
+                type: type,
+                timestamp: new Date().toISOString()
+            };
+
+            try {
+                // IMPORTANT: Replace "YOUR_UBUNTU_IP_ADDRESS" with the actual IP address of your Ubuntu machine.
+                const response = await fetch('http://192.168.2.10:5001/log', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(logData)
+                });
+                
+                if (response.ok) {
+                    showMessage(`Event generated for ${username}: ${type} login.`);
+                } else {
+                    showMessage(`Error: Could not send log data to server. Make sure the IP address is correct.`, true);
+                }
+            } catch (error) {
+                showMessage(`Network error: Could not connect to the log server. Make sure it is running and the IP address is correct.`, true);
+                console.error('Error:', error);
+            }
+        }
+
+        async function simulateBruteForce() {
+            const username = document.getElementById('username').value;
+            const ip = document.getElementById('ip').value;
+            const failedAttempts = 20;
+
+            showMessage(`Simulating a brute force attack of ${failedAttempts} attempts...`);
+            
+            let count = 0;
+            const interval = setInterval(() => {
+                simulateLogin('failure');
+                count++;
+                if (count >= failedAttempts) {
+                    clearInterval(interval);
+                    showMessage(`Brute force simulation complete (${failedAttempts} attempts).`);
+                }
+            }, 100);
+        }
+    </script>
+</body>
+</html>
