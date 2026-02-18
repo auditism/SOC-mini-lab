@@ -20,11 +20,9 @@ The documentation is organized into multiple pages for clarity:
 - **[Lab Overview](docs/lab-overview.md)**  
 - **[Windows → Splunk Integration](docs/windows-integration.md)**  
 - **[Ubuntu Splunk Setup](docs/ubuntu-splunk.md)**  
-- **[pfSense Firewall Integration](docs/pfsense-integration.md)**  
-- **[Kali Attacker Simulations](docs/kali-attacks.md)**  
-- **[Dashboards & SPL Queries](docs/dashboards.md)**  
-- **[Troubleshooting Guide](docs/troubleshooting.md)**  
-- **[Extra Components](docs/extras.md)**  
+- **[Dashboards & SPL Queries](docs/dashboards.md)**
+- **[Login server](docs/python-log-server.py)**
+- **[Login server front end](docs/log-front-end.http)**
 
 ---
 
